@@ -509,6 +509,7 @@ class TemplateAPI(TemplateLM):
             **kwargs,
         )
         cache_method = "generate_until" if generate else "loglikelihood"
+        outputs = None
         acquired = await sem.acquire()
         try:
             async with session.post(
