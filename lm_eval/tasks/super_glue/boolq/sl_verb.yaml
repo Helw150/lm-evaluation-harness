@@ -1,0 +1,35 @@
+task: boolq_sl_verb
+dataset_path: aps/super_glue
+dataset_name: boolq
+output_type: multiple_choice
+training_split: train
+validation_split: validation
+doc_to_text: "{{passage}}\nQuestion: {{question}}?\nA. No\nB. Yes\nAnswer:"
+doc_to_target: label
+doc_to_choice: ["A. No", "B. Yes"]
+should_decontaminate: true
+doc_to_decontamination_query: passage
+metric_list:
+  - metric: acc
+    aggregation: mean
+    higher_is_better: true
+  - metric: acc_norm
+    aggregation: mean
+    higher_is_better: true
+  - metric: bpb
+    aggregation: mean
+    higher_is_better: false
+  - metric: logprob
+    aggregation: mean
+    higher_is_better: true
+  - metric: choice_logprob
+    aggregation: mean
+    higher_is_better: true
+  - metric: choice_prob_norm
+    aggregation: mean
+    higher_is_better: true
+  - metric: choice_logprob_norm
+    aggregation: mean
+    higher_is_better: true
+metadata:
+  version: 1.0
