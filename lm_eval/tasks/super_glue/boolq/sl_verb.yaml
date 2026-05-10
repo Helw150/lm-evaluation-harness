@@ -4,9 +4,9 @@ dataset_name: boolq
 output_type: multiple_choice
 training_split: train
 validation_split: validation
-doc_to_text: "{{passage}}\nQuestion: {{question}}?\nA. No\nB. Yes\nAnswer:"
+doc_to_text: "{{passage}}\n{{question}}?\n\nBased on the information provided if I had to choose between \"yes\" and \"no\" my answer would be \""
 doc_to_target: label
-doc_to_choice: ["A. No", "B. Yes"]
+doc_to_choice: ["no", "yes"]
 should_decontaminate: true
 doc_to_decontamination_query: passage
 metric_list:
